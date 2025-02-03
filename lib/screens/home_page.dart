@@ -10,6 +10,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isImages = true;
+  int count = 0;
+
+  void increment() {
+    setState(() {
+      count++;
+    });
+  }
+
+  void dicrement() {
+    count--;
+  }
+
+  void sbros() {
+    count = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,20 +73,53 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              //SizedBox(height: 20),
               Image.asset(
                 isImages ? 'assets/images/anime1.jpg' : 'assets/images/d2.jpg',
                 width: 500,
-                height: 500,
+                height: 300,
               ),
               IconButton(
                 icon: Icon(Icons.star, color: Colors.amber),
                 splashRadius: 25,
+                iconSize: 30,
                 highlightColor: Colors.black,
                 onPressed: () {
-                  setState(() {
-                    isImages = !isImages;
-                  });
+                  setState(
+                    () {
+                      isImages = !isImages;
+                    },
+                  );
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.remove),
+                    onPressed: () {
+                      setState(
+                        () {
+                          dicrement();
+                        },
+                      );
+                    },
+                  ),
+                  Text('$count'),
+                  IconButton(
+                    icon: Icon(Icons.add),
+                    onPressed: increment,
+                  ),
+                ],
+              ),
+              IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: () {
+                  setState(
+                    () {
+                      sbros();
+                    },
+                  );
                 },
               ),
             ],
