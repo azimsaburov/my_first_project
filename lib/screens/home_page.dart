@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/listview.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,6 +27,18 @@ class _HomePageState extends State<HomePage> {
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 child: Text('Вернуться назад!'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ViewList(),
+                    ),
+                  );
+                },
+                child: Text('Следующая страница'),
               ),
               Row(
                 children: [
