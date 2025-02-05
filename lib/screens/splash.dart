@@ -12,27 +12,24 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //   appBar: AppBar(
-      //     title: Text('Добро пожаловать!'),
-      //   ),
+      backgroundColor: Colors.lightBlueAccent,
       body: Center(
-        child: Container(
-          color: Colors.lightBlueAccent,
-          child: Column(
-            children: [
-              Text('Привет!'),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  ); 
-                },
-                child: Text('Переход на следующую страницу'),
-              ),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Привет!'),
+            SizedBox(height: 20),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                ); 
+              },
+              icon: Icon(Icons.navigate_next),
+              iconSize: 50,
+            ),
+          ],
         ),
       ),
     );
