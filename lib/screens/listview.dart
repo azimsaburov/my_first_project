@@ -9,10 +9,11 @@ class ViewList extends StatefulWidget {
 }
 
 class _ViewListState extends State<ViewList> {
-  String inputText = '';
-  final TextEditingController controllerSuka = TextEditingController();
+ String inputText = '';
 
-  void _showInputDialog(BuildContext context) {
+  void _showInputDialog(BuildContext context) { 
+    
+  final TextEditingController controllerSuka = TextEditingController();
     void updateText() {
       setState(
         () {
