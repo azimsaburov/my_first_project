@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/next_page.dart';
 
 class ViewList extends StatefulWidget {
   const ViewList({super.key});
@@ -65,10 +64,7 @@ class _ViewListState extends State<ViewList> {
         backgroundColor: Colors.cyanAccent,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => NextPage()),
-            );
+            Navigator.pushReplacementNamed(context, '/next');
           },
           icon: Icon(Icons.arrow_forward),
         ),

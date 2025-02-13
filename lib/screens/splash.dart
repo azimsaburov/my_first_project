@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/next_page.dart';
-//import 'package:flutter_application_1/screens/home_page.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -23,10 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 20),
             IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NextPage()), //здесь должен быть HomePage()
-                ); 
+                Navigator.pushReplacementNamed(context, '/home');
               },
               icon: Icon(Icons.navigate_next),
               iconSize: 50,

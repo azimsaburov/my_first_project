@@ -12,13 +12,19 @@ class _NextPageState extends State<NextPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isChecked = false;
+  bool isSwitch = false;
+  Color _bcolor = Colors.green;
+
+  void _changeColor (){
+    setState((){_bcolor = _bcolor == Colors.green ? Colors.yellow : Colors.green;},);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         margin: EdgeInsets.all(20),
-        color: Colors.green,
+        color: _bcolor,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Container(
@@ -99,9 +105,22 @@ class _NextPageState extends State<NextPage> {
                       );
                     }
                     String pass = _passwordController.text;
+                    // ignore: avoid_print
                     print('Пароль: $pass');
                   },
                   child: Text('Отправить'),
+                ),
+                SizedBox(height: 20),
+                Switch(
+                  value: isSwitch,
+                  onChanged: (value) {
+                    setState(
+                      () {
+                        isSwitch = value;
+                        _changeColor(); 
+                      },
+                    );
+                  },
                 ),
               ],
             ),

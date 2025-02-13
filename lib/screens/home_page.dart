@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/listview.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,12 +45,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ViewList(),
-                    ),
-                  );
+                  Navigator.pushReplacementNamed(context, '/list');
                 },
                 child: Text('Следующая страница'),
               ),
