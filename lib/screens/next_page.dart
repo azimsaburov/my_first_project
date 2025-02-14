@@ -104,6 +104,7 @@ class _NextPageState extends State<NextPage> {
                         ),
                       );
                     }
+                    Navigator.pushReplacementNamed(context, '/home');
                     String pass = _passwordController.text;
                     // ignore: avoid_print
                     print('Пароль: $pass');

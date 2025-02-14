@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 20),
             IconButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, '/next');
               },
               icon: Icon(Icons.navigate_next),
               iconSize: 50,
