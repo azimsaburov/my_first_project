@@ -30,6 +30,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Добро пожаловать!'),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -38,16 +40,20 @@ class _HomePageState extends State<HomePage> {
           color: Colors.lightGreen,
           child: Column(
             children: [
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text('Вернуться назад!'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/list');
-                },
-                child: Text('Следующая страница'),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.arrow_back),
+                  ),
+                  SizedBox(height: 20),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/list');
+                    },
+                    icon: Icon(Icons.arrow_forward),
+                  ),
+                ],
               ),
               Row(
                 children: [
@@ -69,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               ),
               //SizedBox(height: 20),
               Image.asset(
-                isImages ? 'assets/images/anime1.jpg' : 'assets/images/d2.jpg',
+                isImages ? 'assets/images/d2.jpg' : 'assets/images/anime1.jpg',
                 width: 500,
                 height: 300,
               ),

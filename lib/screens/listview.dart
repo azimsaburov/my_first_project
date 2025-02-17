@@ -8,11 +8,10 @@ class ViewList extends StatefulWidget {
 }
 
 class _ViewListState extends State<ViewList> {
- String inputText = '';
+  String inputText = '';
 
-  void _showInputDialog(BuildContext context) { 
-    
-  final TextEditingController controllerSuka = TextEditingController();
+  void _showInputDialog(BuildContext context) {
+    final TextEditingController controllerSuka = TextEditingController();
     void updateText() {
       setState(
         () {
@@ -59,66 +58,85 @@ class _ViewListState extends State<ViewList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Еу Еу'),
+        title: Text('Листвью'),
         centerTitle: true,
-        backgroundColor: Colors.cyanAccent,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/next');
-          },
-          icon: Icon(Icons.arrow_forward),
-        ),
+        automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              color: Colors.amber,
-              width: 400,
-              height: 200,
-              child: ListView(
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.amber,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              Row(
                 children: [
-                  ListTile(
-                    leading: Icon(Icons.star),
-                    title: Text('Элемент 1'),
-                    subtitle: Text('Хрен его знает что тут писать'),
-                    trailing: Icon(Icons.arrow_forward),
+                  IconButton(
+                    onPressed: () =>
+                        Navigator.pushReplacementNamed(context, '/home'),
+                    icon: Icon(Icons.arrow_back),
                   ),
-                  ListTile(
-                    leading: Icon(Icons.favorite),
-                    title: Text('Элемент 2'),
-                    subtitle: Text('Описание этого элемента'),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text('Элемент 3'),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: 400,
-              color: Colors.greenAccent,
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  ElevatedButton(
+                  SizedBox(height: 20),
+                  IconButton(
                     onPressed: () {
-                      setState(
-                        () {
-                          _showInputDialog(context);
-                        },
-                      );
+                      Navigator.pushReplacementNamed(context, '/');
                     },
-                    child: Text('Оставить комментарий'),
+                    icon: Icon(Icons.arrow_forward),
                   ),
-                  Text(inputText),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+              Container( 
+                width: 400,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListView(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.star),
+                      title: Text('Элемент 1'),
+                      subtitle: Text('Хрен его знает что тут писать'),
+                      trailing: Icon(Icons.kayaking),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.favorite),
+                      title: Text('Элемент 2'),
+                      subtitle: Text('Описание этого элемента'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.settings),
+                      title: Text('Элемент 3'),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  setState(
+                    () {
+                      _showInputDialog(context);
+                    },
+                  );
+                },
+                child: Text('Оставить комментарий'),
+              ),
+              SizedBox(height: 10),
+              Container(
+                width: 200,
+                height:100,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(inputText,),
+              ),
+            ],
+          ),
         ),
       ),
     );
